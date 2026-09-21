@@ -4,9 +4,9 @@
 [![DAX](https://img.shields.io/badge/DAX-Measures-blue)](#dax-measures)
 [![Status](https://img.shields.io/badge/Status-Complete-brightgreen)]()
 
-A second-stage Power BI analysis of a food delivery operation, focused on **30-minute delivery risk**, **route efficiency**, and the interaction between **traffic, weather, zone relationship, and demand timing**. Built on a proper star-schema semantic model with a full DAX measure library, five report pages, and a drill-through order-detail view.
+A Power BI analysis of a food delivery operation, focused on **30-minute delivery risk**, **route efficiency**, and the interaction between **traffic, weather, zone relationship, and demand timing**. Built on a proper star-schema semantic model with a full DAX measure library, five report pages, and a drill-through order-detail view.
 
-> This project deliberately does **not** repeat the descriptive averages from the first-pass dashboard. It is a targeted second-stage investigation into *why* deliveries breach the 30-minute threshold and where route geometry, conditions, and demand overlap to create risk.
+> This project is a targeted investigation into *why* deliveries breach the 30-minute threshold and where route geometry, conditions, and demand overlap to create risk.
 
 ---
 
