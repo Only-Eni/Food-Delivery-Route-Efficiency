@@ -246,6 +246,32 @@ Route Length remains the dominant continuous predictor. This is labelled in-repo
 
 ---
 
+## Insights & Recommendations
+
+### Insights
+
+1. **Route length is the main driver of delivery time** — not weather, not traffic. It correlates at r ≈ 0.9467 with delivery time and is the dominant continuous predictor in the full explanatory model (R² ≈ 0.903).
+2. **Cross-zone deliveries breach 30 min more often** (63.4%) **than same-zone** (58.3%) — but once late orders are isolated, same-zone late orders average *slightly longer* (63.21 vs 60.23 min). Zone crossing raises the *odds* of lateness more than it worsens lateness once it happens.
+3. **Single-variable stories are misleading.** "Cloudy weather is slow" is not the real finding — the real one is the specific combination **Cross Zone + Low Traffic + Cloudy**, where 14 of 16 orders (87.5%) ran over 30 min, averaging 58.08 min. Weather and traffic only matter in combination with route/zone context.
+4. **Car is fastest on average (41.48 min)**, but this is confounded — once route length is controlled, delivery-mode differences shrink considerably. The raw mode averages overstate the effect.
+5. **Late orders are not statistical outliers** (Tukey 1.5×IQR finds zero) — they are *operationally* unusual, not statistically rare. The 6 orders above 90 minutes share one pattern: long actual route length, not any single weather or traffic tag.
+6. **Some zones carry residual delay even after controlling for route length** — restaurant zone North (+3.9 min, p≈0.047) and customer zone East (+3.4 min, p≈0.069) — a screening signal, not yet a confirmed cause.
+7. **Distance and Route Length are nearly collinear** (r ≈ 0.9674), so "Route Overhead %" (Route Length − Direct Distance, relative to Direct Distance) is the more operationally meaningful variable than either alone.
+
+### Recommendations
+
+| # | Action | Rationale |
+|---|---|---|
+| 1 | Make **route assignment** the primary optimisation target | Route length has the strongest direct relationship with delivery time |
+| 2 | Build a **>30-minute exception workflow** | Auto-flag and segment breaches by zone relationship, traffic, weather, mode, route-length band, and time period |
+| 3 | Monitor **risk combinations, not single factors** | e.g. surface "Cross Zone + Low Traffic + Cloudy," not "cloudy = slow" |
+| 4 | Avoid over-correcting the **delivery-mode fleet mix** | Mode effects shrink substantially once route length is controlled |
+| 5 | Open a **zone-specific investigation list** (North restaurant zone, East customer zone) | Residual delay after controlling for route length — treat as a lead, not a conclusion |
+| 6 | Track **Route Overhead %** as a standing operational KPI | `(Actual Route − Direct Distance) / Direct Distance` — isolates avoidable inefficiency from unavoidable geographic distance |
+
+---
+
+
 ## Author
 
 **Oluwapelumi Eniitan Atanda (Only-Eni)**
